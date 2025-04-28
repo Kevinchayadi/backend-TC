@@ -1,0 +1,70 @@
+<!-- dummy login buat debugging auth -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dummy Google Sign-In</title>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script>
+      function handleCredentialResponse(response) {
+        console.log("Encoded JWT ID token: " + response.credential);
+        // Kamu bisa decode token ini atau kirim ke servermu nanti
+        document.getElementById("token").innerText = response.credential;
+      }
+
+      window.onload = function () {
+        google.accounts.id.initialize({
+          client_id:
+            "361935684928-q74abln50fv87rtsg5du0ub0pf35cdgf.apps.googleusercontent.com", // Ganti dengan Client ID milikmu
+          callback: handleCredentialResponse,
+        });
+
+        google.accounts.id.renderButton(
+          document.getElementById("buttonDiv"),
+          { theme: "outline", size: "large" } // Customize button
+        );
+
+        google.accounts.id.prompt(); // Tampilkan prompt otomatis
+      };
+    </script>
+  </head>
+  <body>
+    <div class="form-container">
+      <form action="#" method="post" style="display:flex; flex-direction: column; gap: 0.2rem;">
+        <label for="email">Email</label>
+        <input type="text" name="email" id="email" placeholder="email"/>
+        <br>
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" placeholder="name"/>
+        <br>
+        <label for="password">Password</label>
+        <input type="text" name="password" id="password" placeholder="password"/>
+        <button type="submit" id="submit">Login</button>
+      </form>
+    </div>
+    <h2>Dummy Google Sign-In</h2>
+    <div id="buttonDiv"></div>
+    <h3>Token hasil login:</h3>
+    <p id="token"></p>
+  </body>
+  <script>
+document.querySelector("form").addEventListener("submit" , e => {
+  e.preventDefault()
+})
+
+document.getElementById("#submit" , () => {
+  const email = document.getElementById("#email").value
+  const name = document.getElementById("#name").value
+  const password= document.getElementById("#password").value
+
+  async function sendData () {
+    try {
+      fetch("")
+    } catch (error) {
+      
+    }
+    
+  }
+})
+  </script>
+</html>
