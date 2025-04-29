@@ -1,12 +1,14 @@
 require('dotenv').config();
 
 const AuthModel = require('../models/AuthModel')
+const express = require('express');
+const app = express();
 const joi = require('joi');
 const jwt= require('jsonwebtoken');
 const multer = require('multer')
 const {google} = require('googleapis')
 
-const logger = require('./utils/logger')
+const logger = require('../utils/logger')
 const pinoHttp = require("pino-http");
  
 app.use(pinoHttp({ logger }));
@@ -16,7 +18,7 @@ app.use(express.json());
 const oauth2Client = new google.auth.OAuth2 (
     process.env.GOOGLE_CLIENT_ID,
     process.env.GOOGLE_CLIENT_SECRET,
-    'http://localhost:5000/auth/google/callback'
+    process.env.GOOGLE_CLIENT_CALLBACK
 )
 
 const scopes = [
