@@ -7,17 +7,15 @@ const path = require('path');
 
 //logger
 const logger = require('./utils/logger')
-const pinoHttp = require("pino-http");
- 
-app.use(pinoHttp({ logger }));
+//const pinoHttp = require("pino-http");
+
+//app.use(pinoHttp({ logger }));
+app.use(express.json());
+app.use(express.urlencoded({ extended:true }));
 
 const authRoute = require("./routes/AuthRoute")
 
-app.get("/" , (req , res) => {
-    res.sendFile(path.join(__dirname ,'login.html'))
-})
-
-app.get('/auth' , authRoute)
+app.use('/auth' , authRoute)
 
 app.listen(port , () => {
     console.log(`Your server running on http://localhost:${port}`)
