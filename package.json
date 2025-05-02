@@ -10,7 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.21.2",
-    "pg": "^8.15.6"
+    "pg": "^8.15.6",
+    "pg-hstore": "^2.3.4"
   },
   "devDependencies": {
     "dotenv": "^16.5.0",
@@ -21,6 +22,7 @@
     "nodemon": "^3.1.10",
     "pino": "^6.14.0",
     "pino-http": "^5.8.0",
-    "sequelize": "^6.37.7"
+    "sequelize": "^6.37.7",
+    "sequelize-cli": "^6.6.2"
   }
 }

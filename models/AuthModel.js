@@ -1,4 +1,5 @@
-const db = require('../config/db.js')
+const { Sequelize, DataTypes } = require('sequelize');
+const db = require('../config/db.js').sequelize;
 
 class AuthModel {
 
