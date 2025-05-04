@@ -12,7 +12,7 @@ const indexRoute = require('./routes/index');
 const port = config.app.port;
 
 app.use(pinoHttp({ logger }));
-app.use('/', indexRoute);
+app.use('/api', indexRoute);
 
 testConnection();
 app.listen(port , () => {

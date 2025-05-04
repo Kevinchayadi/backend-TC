@@ -19,7 +19,8 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
     img: DataTypes.STRING,
-    role: DataTypes.STRING // contoh: 'backend', 'frontend', dll
+    role: DataTypes.STRING,
+    image: DataTypes.STRING // contoh: 'backend', 'frontend', dll
   }, {
     sequelize,
     modelName: 'Admin',
